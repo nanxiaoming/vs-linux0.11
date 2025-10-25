@@ -1,0 +1,65 @@
+完全使用微软的家什编译Linux0.11
+
+1.使用linux0.11-vs源代码,Visual Studio 2019打开linux0.11-vs.sln.
+
+2.分别编译3个项目,会生成 bootsec.exe、 setup.exe 、system.exe 、system.pdb 、system.map 几个有效的文件.
+
+3.bootsec.exe和setup.exe的生成依赖一个空的main.c文件,生成一个PE文件.
+
+4.bootsec的编译来自bootsect.asm的全部逻辑,该asm使用.model tiny模式,是的指令和数据连在一起.setup.exe来自setup.asm,道理同上.
+
+5.system.exe的生成:
+    1)包含目录:$(SolutionDir)..\linux_0.11\include,这样是的源代码的包含引用<>方式正确编译
+    2)安全检查 - 禁用安全检查 Gs-
+    3)启用函数级链接
+    4)汇编程序输出 带源代码的程序集
+    5)生成映射文件
+  * 6)入口点main
+  * 7)基址 0
+  * 8)固定基址 是
+  * 9)其他选项添加:$(IntDir)head.obj $(IntDir)asm.obj $(IntDir)system_call.obj $(IntDir)page.obj $(IntDir)rs_io.obj $(IntDir)keyboard.obj
+  *10)整个项目中不要包含所有incldue目录下的头文件,这样会导致定义冲突.保证应用的都是源代码中的定义而不是Vs定义的.
+   11)为了阅读方便system工程中,添加include下的所有头文件,所有头文件都使用Text描述例如:
+        <Text Include="..\linux_0.11\include\a.out.h" />
+   12)system.exe项目生成的exe文件整理3个段分别是(来自Detect it easy):
+   
+        Name    | VirtualSize | VirtualAddress | SizeOfRawData | PointerToRawData
+      ----------+-------------+----------------+---------------+--------------------
+        .text   | 0x101b9     |     0x1000     |    0x10200    |     0x400
+      ----------+-------------+----------------+---------------+--------------------
+        .rdata  |  0x123c     |     0x12000    |    0x1400     |     0x10600
+      ----------+-------------+----------------+---------------+--------------------
+        .data   |  0x7eac     |     0x14000    |    0x3c00     |     0x11a00
+      ----------+-------------+----------------+---------------+--------------------
+     根据以上信息,将exe按照section转换成bin,代码起始地址为0x1000,所以setup.asm的跳入代码改为
+     
+        mov		ax, 0001h	; protected mode (PE) bit
+        lmsw	ax			; This is it!
+        push	0008h
+        push	1000h       -> system.bin(head.asm main函数)
+        retf
+        
+    13)system工程中引入了所有asm文件,所有asm都生成对应的obj,要参与链接,所以添加$(IntDir)head.obj这些设置
+    
+6.现在已经具备了所有二进制文件,他们是 bootsec.exe、 setup.exe 、system.bin
+
+7.生成启动Image,也就是包含所有Linux0.11逻辑的启动盘,1.44M的软盘镜像.
+
+8.手动成功Image的过程
+
+    1)使用winhex分别打开bootsec.exe、setup.exe 、system.bin
+    2)使用winhex创建新文件,大小1474560,1.44M.大致是这个值即可,linux.img
+    3)bootsec.exe , 选择范围0x200-0x3ff,共0x200字节,右键-编辑-复制数据块-十六进制数值,拷贝到linux.img的头部
+    4)setup.exe,选择范围0x200-0x94F ,右键-编辑-复制数据块-十六进制数值,拷贝到linux.img的0x200偏移处
+    5)system.bin,选择全部 ,右键-编辑-复制数据块-十六进制数值,拷贝到linux.img的0xA00处.
+      根据Linux0.11代码,启动-加载-开启分页跳入真正系统的代码是5个扇区,所以将system.bin放到0xA00处.
+    6)linux.img,编辑-定义选块,开始0结束0x167fff大小0x168000(1.44M),编辑-选择块信息-至新文件,存储为linux.img
+    
+9.使用Bochs启动linux.img,可以直接运行.      
+
+10.自动成功Image的过程
+    1)分别生成 bootsec.exe、 setup.exe 、system.exe 三个程序.
+    2)生成makeimg.exe
+    3)执行makeimg.exe,makeimg.exe会自动读取上面3个程序并且读取对应section写入合适位置.
+    4)在同目录下生成linux.img,将其拷贝到上一级目录,使用linux.bxrc即可调试.
+    

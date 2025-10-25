@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="boot">
+      <UniqueIdentifier>{0a4c3c59-730b-4331-83a9-6d1cbd681af7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="fs">
+      <UniqueIdentifier>{e5cb99fe-b366-45b6-8410-620e823c1d90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="init">
+      <UniqueIdentifier>{d497188a-b154-46ef-97f1-ed0eb052cb56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kernel">
+      <UniqueIdentifier>{59a510fb-158e-462e-a3ac-baa955966d40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kernel\blk_drv">
+      <UniqueIdentifier>{08679490-f1e8-4218-8f6b-ba382a465064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kernel\chr_drv">
+      <UniqueIdentifier>{0d70939c-1a5b-4a18-a955-af8d6b2a17db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{ee856a40-4f47-4cb1-930f-9eea6ecdb4ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mm">
+      <UniqueIdentifier>{c683a74f-2f63-40bc-833c-72f6a7b2fa27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kernel\math">
+      <UniqueIdentifier>{fde6fa57-d693-43f7-88c8-07962e707fd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{5f427eb5-ae35-4f51-8704-14277dde135d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\asm">
+      <UniqueIdentifier>{7bfaf5f8-3caf-4288-9d7d-6650b87219b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\linux">
+      <UniqueIdentifier>{5050e84c-335a-4539-b4eb-55c2baeeb2ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\sys">
+      <UniqueIdentifier>{8a89cb60-b5f2-4f1d-93a2-419601e46e97}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\linux_0.11\boot\head.asm">
+      <Filter>boot</Filter>
+    </None>
+    <None Include="..\linux_0.11\kernel\asm.asm">
+      <Filter>kernel</Filter>
+    </None>
+    <None Include="..\linux_0.11\kernel\system_call.asm">
+      <Filter>kernel</Filter>
+    </None>
+    <None Include="..\linux_0.11\kernel\chr_drv\keyboard.asm">
+      <Filter>kernel\chr_drv</Filter>
+    </None>
+    <None Include="..\linux_0.11\kernel\chr_drv\rs_io.asm">
+      <Filter>kernel\chr_drv</Filter>
+    </None>
+    <None Include="..\linux_0.11\mm\page.asm">
+      <Filter>mm</Filter>
+    </None>
+    <None Include="..\linux_0.11\boot\setup.asm">
+      <Filter>boot</Filter>
+    </None>
+    <None Include="..\linux_0.11\boot\bootsec.asm">
+      <Filter>boot</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\linux_0.11\fs\bitmap.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\block_dev.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\buffer.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\char_dev.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\exec.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\fcntl.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\file_dev.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\file_table.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\fs_open.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\inode.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\ioctl.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\namei.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\pipe.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\read_write.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\stat.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\super.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\fs\truncate.c">
+      <Filter>fs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\init\main.c">
+      <Filter>init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\exit.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\fork.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\mktime.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\panic.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\printk.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\sched.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\signal.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\sys.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\traps.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\vsprintf.c">
+      <Filter>kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\blk_drv\floppy.c">
+      <Filter>kernel\blk_drv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\blk_drv\hd.c">
+      <Filter>kernel\blk_drv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\blk_drv\ll_rw_blk.c">
+      <Filter>kernel\blk_drv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\blk_drv\ramdisk.c">
+      <Filter>kernel\blk_drv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\chr_drv\console.c">
+      <Filter>kernel\chr_drv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\chr_drv\serial.c">
+      <Filter>kernel\chr_drv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\chr_drv\tty_io.c">
+      <Filter>kernel\chr_drv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\chr_drv\tty_ioctl.c">
+      <Filter>kernel\chr_drv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\mm\memory.c">
+      <Filter>mm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\kernel\math\math_emulate.c">
+      <Filter>kernel\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\malloc.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\open.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\setsid.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\string.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\wait.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\write.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\_exit.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\close.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\ctype.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\dup.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\errno.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linux_0.11\lib\execve.c">
+      <Filter>lib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\linux_0.11\include\a.out.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\kernel\blk_drv\blk.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\const.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\ctype.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\errno.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\fcntl.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\signal.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\stdarg.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\stddef.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\string.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\termios.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\time.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\unistd.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\utime.h">
+      <Filter>include</Filter>
+    </Text>
+    <Text Include="..\Bins\system-map-for-bohcs.map">
+      <Filter>boot</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\linux_0.11\include\linux\config.h">
+      <Filter>include\linux</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\linux\fdreg.h">
+      <Filter>include\linux</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\linux\fs.h">
+      <Filter>include\linux</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\linux\hdreg.h">
+      <Filter>include\linux</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\linux\head.h">
+      <Filter>include\linux</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\linux\kernel.h">
+      <Filter>include\linux</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\linux\mm.h">
+      <Filter>include\linux</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\linux\sched.h">
+      <Filter>include\linux</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\linux\sys.h">
+      <Filter>include\linux</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\linux\tty.h">
+      <Filter>include\linux</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\sys\stat.h">
+      <Filter>include\sys</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\sys\times.h">
+      <Filter>include\sys</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\sys\types.h">
+      <Filter>include\sys</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\sys\utsname.h">
+      <Filter>include\sys</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\sys\wait.h">
+      <Filter>include\sys</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\asm\io.h">
+      <Filter>include\asm</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\asm\memory.h">
+      <Filter>include\asm</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\asm\segment.h">
+      <Filter>include\asm</Filter>
+    </Text>
+    <Text Include="..\linux_0.11\include\asm\system.h">
+      <Filter>include\asm</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
