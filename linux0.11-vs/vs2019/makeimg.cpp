@@ -254,7 +254,7 @@ int ConvertMapToBochsSym()
 			continue;
 		}
 
-		if( ( Address1[0] != '0' ) || ( Name[0] == '?' ) || ( 0 == strcmp(Address2, "00000000" ) ) )
+		if( ( Address1[0] != '0' ) || ( Name[0] == '?' ) || ( Name[0] != '_' ) || ( 0 == strcmp(Address2, "00000000" ) ) )
 		{
 			continue;
 		}
@@ -262,7 +262,7 @@ int ConvertMapToBochsSym()
 		Address2[1] = 'x';
 
 		sprintf_s( OutBuf , 150 , "%s %s" , Address2 , &Name[1] );
-
+		
 		fprintf( OutputFile, "%s\n",OutBuf );
 	}
 
